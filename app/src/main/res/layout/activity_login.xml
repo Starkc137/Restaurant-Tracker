@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/ic_background"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="78dp"
+        android:text="Login"
+        android:textColor="@color/orange_50"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/email_loginInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorBlack"
+            android:padding="12dp"
+            android:textColorHint="@color/orange_70" />
+
+        <EditText
+            android:id="@+id/password_loginInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorBlack"
+            android:padding="12dp"
+            android:textColorHint="@color/orange_70" />
+
+        <TextView
+            android:id="@+id/cforgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Forgot Password"
+            android:textSize="15sp"
+            android:textColor="@color/orange_60"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+   <!-- <Button
+        android:id="@+id/googleSigninBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/create_account"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/btn_bg"
+        android:text="Sign In with Google"
+        android:textColor="#fff" /> -->
+
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@id/create_account"
+        android:background="@drawable/btn_bg"
+        android:text="LOGIN"
+        android:textColor="#fff" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/login_button"
+        android:layout_below="@id/ll1"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="85dp"
+        android:text="Create Account"
+        android:textSize="15sp"
+        android:textColor="@color/orange_60"
+        android:textStyle="bold" />
+
+</RelativeLayout>
