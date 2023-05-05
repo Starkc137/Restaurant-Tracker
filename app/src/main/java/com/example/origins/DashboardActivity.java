@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
+   //ToDo Change functionality by replacing the Framelayout with a FragmentHolder!!!!
     ActionBar actionBar;
 
     @Override
