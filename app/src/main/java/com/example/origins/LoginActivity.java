@@ -38,10 +38,12 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     private TextView mSignUp,forgotPassword;
+    private  String URL = "http://lamp.ms.wits.ac.za/~s2451244/log.php";
     public static final String EMAIL_REGEX = "^(.+)@(.+)$";
 
     private String email, password;
 
+    //ToDO add the password eye
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,27 +92,21 @@ public class LoginActivity extends AppCompatActivity {
                                     String[] data = new String[2];
                                     data[0] = email;
                                     data[1] = password;
-                                    PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/login.php", "POST", field, data);
+                                    PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/log.php", "POST", field, data);
                                     if (putData.startPut()) {
                                         String result = putData.getResult();
                                         if (putData.onComplete()) {
                                             progressBar.setVisibility(View.GONE);
-                                            if (result.equals("User email exists and password matches")) {
-                                                Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }
-                                                }, 2000);
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                            }
-
+                                            if(result.equals("User email exists and password matches"))
+                                            Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                            finish();
+                                        }
+                                        else{
+                                            Toast.makeText(getApplicationContext(),result, Toast.LENGTH_SHORT).show();
                                         }
                                     }
+                                    //End Write and Read data with URL
                                 }
                             });
                 }
@@ -135,5 +131,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 
 }

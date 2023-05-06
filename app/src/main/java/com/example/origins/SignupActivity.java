@@ -3,6 +3,7 @@ package com.example.origins;
 
 import static com.example.origins.LoginActivity.EMAIL_REGEX;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,10 +47,11 @@ public class SignupActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.activity_sign_up);
 
         nameSK = findViewById(R.id.nameET);
         emailSK = findViewById(R.id.emailET);
@@ -65,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
         sSignupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo Insert code to make HTTP request to server using Signup PHP file
+
                 username = nameSK.getText().toString().trim();
                 email = emailSK.getText().toString().trim();
                 password = passwordSK.getText().toString().trim();

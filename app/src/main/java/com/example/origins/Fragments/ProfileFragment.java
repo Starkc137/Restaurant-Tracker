@@ -14,8 +14,6 @@ import com.example.origins.R;
 public class ProfileFragment extends Fragment {
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

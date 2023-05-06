@@ -3,6 +3,7 @@ package com.example.origins;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,60 +16,49 @@ import com.example.origins.Fragments.ProfileFragment;
 import com.example.origins.Fragments.UsersFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class DashboardActivity extends AppCompatActivity {
 
-   //ToDo Change functionality by replacing the Framelayout with a FragmentHolder!!!!
-    ActionBar actionBar;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        actionBar = getSupportActionBar();
-        actionBar.setTitle("Profile");
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(selectedListener);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-       // firebaseAuth = FirebaseAuth.getInstance();
-        BottomNavigationView navigationView = findViewById(R.id.navigation);
-        navigationView.setOnNavigationItemReselectedListener(selectedListener);
-
-
+        // Load the HomeFragment as the default fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, new HomeFragment());
+        transaction.commit();
     }
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    private final BottomNavigationView.OnNavigationItemReselectedListener selectedListener = new BottomNavigationView.OnNavigationItemReselectedListener() {
+
+    private final BottomNavigationView.OnNavigationItemSelectedListener selectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
-        public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Fragment selectedFragment = null;
+
             switch (menuItem.getItemId()) {
                 case R.id.nav_home:
-                    //
-
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content, HomeFragment.class, null)
-                            .setReorderingAllowed(true)
-                            .addToBackStack("name") // name can be null
-                            .commit();
-                    return;
+                    selectedFragment = new HomeFragment();
+                    break;
                 case R.id.nav_profile:
-                    //
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content, ProfileFragment.class, null)
-                            .setReorderingAllowed(true)
-                            .addToBackStack("name") // name can be null
-                            .commit();
-                    return;
+                    selectedFragment = new ProfileFragment();
+                    break;
                 case R.id.nav_users:
-                    //
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.content, UsersFragment.class, null)
-                            .setReorderingAllowed(true)
-                            .addToBackStack("name") // name can be null
-                            .commit();
+                    selectedFragment = new UsersFragment();
+                    break;
             }
+
+            if (selectedFragment != null) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            return true;
         }
     };
-
-
 }
