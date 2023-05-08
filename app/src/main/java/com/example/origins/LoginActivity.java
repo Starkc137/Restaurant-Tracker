@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     private TextView mSignUp,forgotPassword;
-    private  String URL = "http://lamp.ms.wits.ac.za/~s2451244/log.php";
     public static final String EMAIL_REGEX = "^(.+)@(.+)$";
 
     private String email, password;
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String[] data = new String[2];
                                     data[0] = email;
                                     data[1] = password;
-                                    PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/log.php", "POST", field, data);
+                                    PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/login.php", "POST", field, data);
                                     if (putData.startPut()) {
                                         String result = putData.getResult();
                                         if (putData.onComplete()) {
