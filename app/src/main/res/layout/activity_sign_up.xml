@@ -31,7 +31,7 @@
         <EditText
             android:id="@+id/nameET"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
             android:hint="Name"
@@ -43,7 +43,7 @@
         <EditText
             android:id="@+id/emailET"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
             android:hint="Email"
@@ -61,13 +61,15 @@
         android:layout_below="@+id/ll1"
         android:textColorHint="@color/orange_70"
         app:boxStrokeWidth="0dp"
-        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@color/orange_70"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/orange_60"
         app:passwordToggleTint="@color/orange_60">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/passwordET"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
             android:hint="Password"
@@ -83,13 +85,15 @@
         android:layout_below="@+id/pass"
         android:textColorHint="@color/orange_70"
         app:boxStrokeWidth="0dp"
-        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@color/orange_70"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/orange_60"
         app:passwordToggleTint="@color/orange_60">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/confirmPassET"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"

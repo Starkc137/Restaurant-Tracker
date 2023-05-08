@@ -13,5 +13,6 @@
     <color name="bottom_navigation_text_color">#8A8A8A</color>
     <color name="bottom_navigation_item_selected_color">#FF0000</color>
     <color name="bottom_navigation_item_unselected_color">#000000</color>
+    <color name="transparent">#RRGGBB00</color>
 
 </resources>

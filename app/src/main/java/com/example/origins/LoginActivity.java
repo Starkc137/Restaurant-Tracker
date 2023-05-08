@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private String email, password;
 
-    //ToDO add the password eye
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
