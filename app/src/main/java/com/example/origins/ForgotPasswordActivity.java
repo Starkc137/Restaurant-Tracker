@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+//ToDo: Connect this to a php file that sends an email to the user with password token
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     private EditText mEmailInput, answerInput;

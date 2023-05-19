@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_background2"
-    tools:context=".Fragments.UsersFragment">
+    tools:context=".Customers.Fragments.CustomerProfileFragment">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="103dp"
-        android:layout_height="49dp"
-        android:text="Users"
+        android:layout_width="231dp"
+        android:layout_height="63dp"
+        android:text="Customer Profile"
         android:textColor="@color/orange_50"
         android:textSize="30dp"
         android:textStyle="bold"

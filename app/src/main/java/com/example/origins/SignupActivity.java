@@ -3,20 +3,18 @@ package com.example.origins;
 
 import static com.example.origins.LoginActivity.EMAIL_REGEX;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -26,12 +24,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
+//ToDo add user selection in php files and implement it here
+//ToDo new php
 public class SignupActivity extends AppCompatActivity {
 
     private EditText nameSK;
@@ -41,11 +39,9 @@ public class SignupActivity extends AppCompatActivity {
     private Button sSignupButton;
     private TextView login;
     private ProgressBar progressBar;
-    private  String URL = "https://lamp.ms.wits.ac.za/~s2451244/signup.php";
-    String username, email,password,confirmPassword;
-;
-
-
+    private Spinner userTypeSpinner;
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/signup.php";
+    String username, email,password,confirmPassword, user_type;
 
 
     @Override
@@ -61,6 +57,14 @@ public class SignupActivity extends AppCompatActivity {
         login = findViewById(R.id.loginTV);
         progressBar = findViewById(R.id.progressBar);
         username = email = password =confirmPassword ="";
+        userTypeSpinner = findViewById(R.id.user_type_spinner);
+
+
+        //Code to set spinner color
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.user_types, R.layout.spinner_item_layout);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item_layout);
+        userTypeSpinner.setAdapter(adapter);
 
 
 
@@ -72,6 +76,7 @@ public class SignupActivity extends AppCompatActivity {
                 email = emailSK.getText().toString().trim();
                 password = passwordSK.getText().toString().trim();
                 confirmPassword = confirmPasswordSK.getText().toString().trim();
+                user_type = userTypeSpinner.getSelectedItem().toString();
 
                 if (username.isEmpty() || username.equals(" ")) {
                     nameSK.setError("Please input valid name");
@@ -96,7 +101,13 @@ public class SignupActivity extends AppCompatActivity {
                     confirmPasswordSK.setError("Password not match");
                     return;
                 }
-                signup();
+                if(user_type.equals("None")){
+                    Toast.makeText(SignupActivity.this, "Select valid user", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    signup();
+                }
+
             }
         });
 
@@ -106,16 +117,19 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(new Intent(SignupActivity.this,LoginActivity.class));
             }
         });
-    }
 
+    }
         private void signup() {
+            progressBar.setVisibility(View.VISIBLE);
             // Get user inputs
             username = nameSK.getText().toString();
             email = emailSK.getText().toString();
             password = passwordSK.getText().toString();
+            user_type = userTypeSpinner.getSelectedItem().toString();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    progressBar.setVisibility(View.GONE);
                     if (response.equals("Success")) {
                         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                     } else if (response.equals("User with this email already exists")) {
@@ -135,6 +149,7 @@ public class SignupActivity extends AppCompatActivity {
                     data.put("username", username);
                     data.put("email", email);
                     data.put("password", password);
+                    data.put("user_type", user_type);
                     return data;
                 }
             };

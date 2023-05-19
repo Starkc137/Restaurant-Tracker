@@ -24,6 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.origins.Customers.CustomerDashboardActivity;
+import com.example.origins.Staff.StaffDashboardActivity;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.HashMap;
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button mLoginButton;
     ProgressBar progressBar;
 
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/login.php";
     private TextView mSignUp,forgotPassword;
     public static final String EMAIL_REGEX = "^(.+)@(.+)$";
 
@@ -57,59 +60,63 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-                    email = mEmail.getText().toString().trim();
-                    password = mPassword.getText().toString().trim();
+                email = mEmail.getText().toString().trim();
+                password = mPassword.getText().toString().trim();
 
-                    if (email.isEmpty() || !email.matches(EMAIL_REGEX)) {
-                        mEmail.setError("Please input valid email");
-                        return;
-                    }
-
-                    if (password.isEmpty() ) {
-                        mPassword.setError("Please input password");
-                        return;
-                    }
-                    if (password.length() < 6  ) {
-                        mPassword.setError("Input at least 6 characters");
-                        return;
-                    }
-                            progressBar.setVisibility(View.VISIBLE);
-                            Handler handler = new Handler();
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //Starting Write and Read data with URL
-                                    //Creating array for parameters
-                                    String[] field = new String[2];
-                                    field[0] = "email";
-                                    field[1] = "password";
-                                    //Creating array for data
-                                    String[] data = new String[2];
-                                    data[0] = email;
-                                    data[1] = password;
-                                    PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/login.php", "POST", field, data);
-                                    if (putData.startPut()) {
-                                        String result = putData.getResult();
-                                        if (putData.onComplete()) {
-                                            progressBar.setVisibility(View.GONE);
-                                            if(result.equals("User email exists and password matches"))
-                                            Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                                            finish();
-                                        }
-                                        else{
-                                            Toast.makeText(getApplicationContext(),result, Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                    //End Write and Read data with URL
-                                }
-                            });
+                if (email.isEmpty() || !email.matches(EMAIL_REGEX)) {
+                    mEmail.setError("Please input valid email");
+                    return;
                 }
 
-            });
+                if (password.isEmpty() ) {
+                    mPassword.setError("Please input password");
+                    return;
+                }
+                if (password.length() < 6  ) {
+                    mPassword.setError("Input at least 6 characters");
+                    return;
+                }
+                /*progressBar.setVisibility(View.VISIBLE);
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[2];
+                        field[0] = "email";
+                        field[1] = "password";
+
+                        String[] data = new String[2];
+                        data[0] = email;
+                        data[1] = password;
+
+                        PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/login2.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            String result = putData.getResult();
+                            if (putData.onComplete()) {
+                                progressBar.setVisibility(View.GONE);
+                                if (result.equals("customer")) {
+                                    Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(LoginActivity.this, CustomerDashboardActivity.class));
+                                    finish();
+                                }
+                                if (result.equals("staff")) {
+                                    Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(LoginActivity.this, StaffDashboardActivity.class));
+                                    finish();
+                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });*/
+                login();
+            }
+
+        });
 
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,9 +136,39 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    private void login() {
+        progressBar.setVisibility(View.VISIBLE);
+        // Get user inputs
+        email = mEmail.getText().toString().trim();
+        password = mPassword.getText().toString().trim();
 
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressBar.setVisibility(View.GONE);
+                if (response.equals("customer")) {
+                    startActivity(new Intent(getApplicationContext(),CustomerDashboardActivity.class));
+                } else if (response.equals("staff")) {
+                    startActivity(new Intent(getApplicationContext(),StaffDashboardActivity.class));
+                }
 
-
-
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("email", email);
+                data.put("password", password);
+                return data;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
 
 }

@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.origins.Customers.CustomerDashboardActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,DashboardActivity.class));
+                startActivity(new Intent(MainActivity.this, CustomerDashboardActivity.class));
             }
         });
     }

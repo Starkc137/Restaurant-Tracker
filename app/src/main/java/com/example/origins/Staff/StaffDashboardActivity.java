@@ -1,36 +1,34 @@
-package com.example.origins;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+package com.example.origins.Staff;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.origins.Fragments.HomeFragment;
-import com.example.origins.Fragments.ProfileFragment;
-import com.example.origins.Fragments.UsersFragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.origins.R;
+import com.example.origins.Staff.Fragments.OrdersFragment;
+import com.example.origins.Staff.Fragments.StaffHomeFragment;
+import com.example.origins.Staff.Fragments.StaffProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-public class DashboardActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
+public class StaffDashboardActivity extends AppCompatActivity {
+
+    private BottomNavigationView bottomNavigationView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.staff_dashboard);
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(selectedListener);
+        bottomNavigationView1 = findViewById(R.id.bottom_navigation2);
+        bottomNavigationView1.setOnNavigationItemSelectedListener(selectedListener);
 
         // Load the HomeFragment as the default fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, new HomeFragment());
+        transaction.replace(R.id.content2, new StaffHomeFragment());
         transaction.commit();
     }
 
@@ -41,19 +39,20 @@ public class DashboardActivity extends AppCompatActivity {
 
             switch (menuItem.getItemId()) {
                 case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
+                    selectedFragment = new StaffHomeFragment();
                     break;
-                case R.id.nav_profile:
-                    selectedFragment = new ProfileFragment();
+                case R.id.nav_orders:
+                    selectedFragment = new OrdersFragment();
                     break;
-                case R.id.nav_users:
-                    selectedFragment = new UsersFragment();
+                case R.id.nav_account:
+                    selectedFragment = new StaffProfileFragment();
                     break;
+
             }
 
             if (selectedFragment != null) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.content, selectedFragment);
+                transaction.replace(R.id.content2, selectedFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

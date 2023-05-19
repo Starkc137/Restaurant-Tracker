@@ -17,9 +17,11 @@
         android:theme="@style/Theme.Origins"
         tools:targetApi="33">
         <activity
-            android:name=".DashboardActivity"
+            android:name=".Customers.CustomerDashboardActivity"
             android:exported="false"/>
-
+        <activity
+            android:name=".Staff.StaffDashboardActivity"
+            android:exported="false"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"

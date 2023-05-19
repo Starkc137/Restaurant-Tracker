@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_background2"
-    tools:context=".Fragments.ProfileFragment">
+    tools:context=".Customers.Fragments.CustomerHomeFragment">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="103dp"
+        android:layout_width="233dp"
         android:layout_height="49dp"
-        android:text="Profile"
+        android:text="Customer Home"
         android:textColor="@color/orange_50"
         android:textSize="30dp"
         android:textStyle="bold"

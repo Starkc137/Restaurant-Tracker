@@ -5,12 +5,14 @@
         android:title="Home"
         android:icon="@drawable/ic_home_fill"/>
 
-    <item android:id="@+id/nav_profile"
-        android:title="Profile"
-        android:icon="@drawable/ic_profile"/>
+    <item android:id="@+id/nav_orders"
+        android:title="Orders"
+        android:icon="@drawable/ic_orders"/>
 
-    <item android:id="@+id/nav_users"
-        android:title="Users"
-        android:icon="@drawable/ic_users"/>
+    <item android:id="@+id/nav_account"
+        android:title="Profile"
+        android:icon="@drawable/ic_account"/>
+
+
 
 </menu>
