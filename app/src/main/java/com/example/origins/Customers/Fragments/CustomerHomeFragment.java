@@ -3,64 +3,51 @@ package com.example.origins.Customers.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.origins.Customers.Adapters.CustomerHomeAdapter;
+import com.example.origins.Customers.Models.CustomerHomeModel;
 import com.example.origins.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CustomerHomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerHomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CustomerHomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CustomerHomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CustomerHomeFragment newInstance(String param1, String param2) {
-        CustomerHomeFragment fragment = new CustomerHomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    RecyclerView Homeview;
+    List<CustomerHomeModel> customerHomeModelList;
+    CustomerHomeAdapter customerHomeAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_customer_home, container, false);
+        Homeview = root.findViewById(R.id.vertical_view);
+
+        customerHomeModelList = new ArrayList<>();
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.kfc, "KFC"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.debonairs, "Debonairs"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.nandos, "Nandos"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.mcdonalds2, "McDonalds"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.chicken_licken, "Chicken Licken"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.steers, "Steers"));
+        customerHomeModelList.add(new CustomerHomeModel(R.drawable.fishaways, "Fishaways"));
+
+        customerHomeAdapter = new CustomerHomeAdapter(getActivity(), customerHomeModelList);
+        Homeview.setAdapter(customerHomeAdapter);
+        Homeview.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+        Homeview.setHasFixedSize(true);
+        Homeview.setNestedScrollingEnabled(false);
+
+        return root;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_customer_home, container, false);
-    }
+
 }
