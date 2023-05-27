@@ -8,68 +8,73 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="139dp"
-        android:layout_height="121dp"
-        android:background="@drawable/profileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/profile_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/accountbtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="Account Details"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.426" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="138dp"
-        android:layout_height="115dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/Heplcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/help_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="196dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="116dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="136dp"
         android:text="Help"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="119dp"
-        android:layout_height="145dp"
-        android:background="@drawable/AboutImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/aboutimage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="0.733" />
 
     <Button
 
         android:id="@+id/button2"
-        android:layout_width="208dp"
-        android:layout_height="48dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="About"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.718" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

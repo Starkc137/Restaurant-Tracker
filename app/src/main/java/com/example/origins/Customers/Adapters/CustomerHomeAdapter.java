@@ -4,68 +4,81 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.origins.Customers.Models.CustomerHomeModel;
 
 import com.example.origins.R;
+import com.example.origins.Staff.Order;
 
 import java.util.List;
-public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapter.ViewHolder> {
+
+public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapter.OrderViewHolder> {
 
     private Context context;
-    private List<CustomerHomeModel> list;
-    private OnItemClickListener onItemClickListener;
+    private List<Order> orderList;
 
-    public interface OnItemClickListener {
-        void onItemClick(CustomerHomeModel item);
-    }
-
-    public CustomerHomeAdapter(Context context, List<CustomerHomeModel> list) {
+    public CustomerHomeAdapter(Context context, List<Order> orderList) {
         this.context = context;
-        this.list = list;
-        this.onItemClickListener = onItemClickListener;
+        this.orderList = orderList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_home_view, parent, false);
-        return new ViewHolder(view);
+    public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.customer_order, parent, false);
+        return new OrderViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CustomerHomeModel item = list.get(position);
-        holder.imageView.setImageResource(item.getImage());
-        holder.name.setText(item.getName());
+    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+        Order order = orderList.get(position);
+        holder.textViewCustomerName.setText(": " + order.getCustomerName());
+        holder.textViewStatus.setText("Status: " + order.getOrderStatus());
+        holder.textViewRestaurantName.setText("Restaurant: " + order.getRestaurantName());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        // Set click listener for thumbs up button
+        holder.textViewThumbsUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(item);
-                }
+                // Perform thumbs up action
+                Toast.makeText(context, "Thumbs Up clicked for Order ID: " + order.getOrderId(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Set click listener for thumbs down button
+        holder.textViewThumbsDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform thumbs down action
+                Toast.makeText(context, "Thumbs Down clicked for Order ID: " + order.getOrderId(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return orderList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView name;
+    public class OrderViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewOrderId;
+        TextView textViewStaffName, textViewCustomerName;
+        TextView textViewOrderTime;
+        TextView textViewStatus;
+        TextView textViewRestaurantName;
+        TextView textViewThumbsUp;
+        TextView textViewThumbsDown;
 
-        public ViewHolder(@NonNull View itemView) {
+        public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image1);
-            name = itemView.findViewById(R.id.txt1);
+
+            textViewCustomerName = itemView.findViewById(R.id.txtCustomerName);
+            textViewStatus = itemView.findViewById(R.id.txtOrderStatus);
+            textViewRestaurantName = itemView.findViewById(R.id.txtResName);
+
         }
     }
 }

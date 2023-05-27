@@ -16,22 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StaffDashboardActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView1;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.staff_dashboard);
-
-        bottomNavigationView1 = findViewById(R.id.bottom_navigation2);
-        bottomNavigationView1.setOnNavigationItemSelectedListener(selectedListener);
-
-        // Load the HomeFragment as the default fragment
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content2, new StaffHomeFragment());
-        transaction.commit();
-    }
-
     private final BottomNavigationView.OnNavigationItemSelectedListener selectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -60,4 +44,20 @@ public class StaffDashboardActivity extends AppCompatActivity {
             return true;
         }
     };
+    private BottomNavigationView bottomNavigationView1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.staff_dashboard);
+
+        bottomNavigationView1 = findViewById(R.id.bottom_navigation2);
+        bottomNavigationView1.setOnNavigationItemSelectedListener(selectedListener);
+
+        // Load the HomeFragment as the default fragment
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content2, new StaffHomeFragment());
+        transaction.commit();
+    }
 }

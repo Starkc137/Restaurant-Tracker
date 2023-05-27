@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="user_types">
+
+    <string-array name="Restaurants">
         <item>None</item>
-        <item>Customer</item>
-        <item>Staff</item>
+        <item>KFC</item>
+        <item>debonairs_pizza</item>
+        <item>Steers</item>
+        <item>Nandos</item>
+        <item>McDonalds</item>
     </string-array>
+
+
 </resources>

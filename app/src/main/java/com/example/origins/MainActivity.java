@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.origins.Customers.CustomerDashboardActivity;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 doubleBackToExitPressedOnce = false;
-            } 
+            }
         }, 2000);
     }
 

@@ -4,22 +4,148 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_background2"
     tools:context=".Staff.Fragments.StaffHomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="233dp"
         android:layout_height="49dp"
-        android:text="Customer Home"
+        android:layout_marginTop="35dp"
+        android:text="Meet &amp; Eat"
         android:textColor="@color/orange_50"
         android:textSize="30dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="233dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="150dp"
+        android:text="Create new order here"
+        android:textColor="@color/orange_50"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <EditText
+            android:id="@+id/staffMemberName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Your staff name"
+            android:padding="12dp"
+            android:textColorHint="@color/orange_70" />
+
+
+        <EditText
+            android:id="@+id/customerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Customer Email"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/orange_70" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/p"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:text="Restaurant:"
+                android:textColor="@color/orange_70"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/restaurant_name_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange_70"
+                android:entries="@array/Restaurants"
+                android:prompt="@string/user_type_prompt" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBarr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/p"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginLeft="18dp"-->
+        <!--            android:layout_marginTop="0dp"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/txtUserType"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginLeft="120dp"-->
+        <!--                android:text="Order item:"-->
+        <!--                android:textColor="@color/orange_70"-->
+        <!--                android:textSize="15dp"-->
+        <!--                android:textStyle="bold" />-->
+
+        <!--            <Spinner-->
+        <!--                android:id="@+id/user_type_spinner"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:backgroundTint="@color/orange_70"-->
+        <!--                android:entries="@array/Menu_items"-->
+        <!--                android:prompt="@string/user_type_prompt" />-->
+
+        <!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/create_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/ll1"
+        app:layout_constraintVertical_bias="0.36" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

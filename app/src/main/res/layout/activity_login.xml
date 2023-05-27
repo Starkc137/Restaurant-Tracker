@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/ic_background"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,61 +31,59 @@
             android:background="@drawable/text_box"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorBlack"
             android:padding="12dp"
+            android:textColor="@color/colorBlack"
             android:textColorHint="@color/orange_70" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
             android:layout_below="@+id/email_loginInput"
-            app:passwordToggleTint="@color/orange_60"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeColor="@color/orange_70"
             android:textColorHint="@color/orange_70"
-            >
+            app:boxStrokeColor="@color/orange_70"
+            app:boxStrokeWidth="0dp"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/orange_60">
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/password_loginInput"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:inputType="textPassword"
                 android:layout_margin="8dp"
-                android:hint="Password"
-                android:id="@+id/password_loginInput"
-                android:textColor="@color/colorBlack"
                 android:background="@drawable/text_box"
-                />
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorBlack" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="0dp"-->
-<!--            android:orientation="horizontal">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginTop="0dp"-->
+        <!--            android:orientation="horizontal">-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/txtUserType"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="User:"-->
-<!--                android:textSize="15dp"-->
-<!--                android:layout_marginLeft="120dp"-->
-<!--                android:textColor="@color/orange_70"-->
-<!--                android:textStyle="bold" />-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/txtUserType"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="User:"-->
+        <!--                android:textSize="15dp"-->
+        <!--                android:layout_marginLeft="120dp"-->
+        <!--                android:textColor="@color/orange_70"-->
+        <!--                android:textStyle="bold" />-->
 
-<!--            <Spinner-->
-<!--                android:id="@+id/user_type_spinner"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:entries="@array/user_types"-->
-<!--                android:backgroundTint="@color/orange_70"-->
-<!--                android:prompt="@string/user_type_prompt" />-->
+        <!--            <Spinner-->
+        <!--                android:id="@+id/user_type_spinner"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:entries="@array/user_types"-->
+        <!--                android:backgroundTint="@color/orange_70"-->
+        <!--                android:prompt="@string/user_type_prompt" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
         <TextView
             android:id="@+id/cforgot_password"
@@ -96,23 +93,22 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="Forgot Password"
-            android:textSize="15sp"
             android:textColor="@color/orange_60"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
 
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/create_account"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="50dp"
-        android:layout_above="@id/create_account"
         android:background="@drawable/btn_bg"
         android:text="LOGIN"
         android:textColor="#fff" />
@@ -135,8 +131,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="85dp"
         android:text="Create Account"
-        android:textSize="15sp"
         android:textColor="@color/orange_60"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
 </RelativeLayout>
