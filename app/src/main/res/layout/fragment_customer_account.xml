@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="9dp"
     app:cardCornerRadius="10dp"
+    android:background="@drawable/MultipleChefHats"
     app:cardElevation="4dp">
 
     <LinearLayout
