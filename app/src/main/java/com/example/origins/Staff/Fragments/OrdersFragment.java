@@ -129,8 +129,8 @@ public class OrdersFragment extends Fragment implements OrderAdapter.OrderClickL
 
     private class UpdateOrderTask extends AsyncTask<Void, Void, Boolean> {
 
-        private int orderId;
-        private String newStatus;
+        private final int orderId;
+        private final String newStatus;
 
         public UpdateOrderTask(int orderId, String newStatus) {
             this.orderId = orderId;

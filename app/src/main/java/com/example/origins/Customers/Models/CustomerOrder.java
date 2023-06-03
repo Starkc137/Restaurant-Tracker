@@ -2,11 +2,14 @@ package com.example.origins.Customers.Models;
 
 
 public class CustomerOrder {
-    private int orderId;
-    private String customerName;
-    private int staffId;
-    private String orderStatus, orderTime, staffName, restaurantName, customerRating;
-    ;
+    private final int orderId;
+    private final String customerName;
+    private final int staffId;
+    private final String orderStatus;
+    private final String orderTime;
+    private final String staffName;
+    private final String restaurantName;
+    private final String customerRating;
 
     public CustomerOrder(int orderId, String customerName, int staffId, String orderStatus, String orderTime, String staffName, String restaurantName, String customerRating) {
         this.orderId = orderId;

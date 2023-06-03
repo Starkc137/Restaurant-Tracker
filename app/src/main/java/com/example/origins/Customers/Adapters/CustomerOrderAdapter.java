@@ -26,10 +26,10 @@ import java.util.Map;
 
 public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdapter.OrderViewHolder> {
 
-    private List<Order> orderList;
-    private OrderClickListener orderClickListener;
-    private RequestQueue requestQueue;
-    private Context context;
+    private final List<Order> orderList;
+    private final OrderClickListener orderClickListener;
+    private final RequestQueue requestQueue;
+    private final Context context;
 
     public CustomerOrderAdapter(Context context, List<Order> orderList, OrderClickListener orderClickListener) {
         this.context = context;
@@ -130,8 +130,14 @@ public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdap
 
     public class OrderViewHolder extends RecyclerView.ViewHolder {
         public CardView cardView;
-        private TextView txtOrderId, txtCustomerName, txtStaffId, txtOrderStatus, txtOrderTime, txtResName;
-        private ImageView imgThumbsUp, imgThumbsDown;
+        private final TextView txtOrderId;
+        private final TextView txtCustomerName;
+        private final TextView txtStaffId;
+        private final TextView txtOrderStatus;
+        private final TextView txtOrderTime;
+        private final TextView txtResName;
+        private final ImageView imgThumbsUp;
+        private final ImageView imgThumbsDown;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);

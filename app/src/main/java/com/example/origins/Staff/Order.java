@@ -1,9 +1,13 @@
 package com.example.origins.Staff;
 
 public class Order {
-    private int orderId;
-    private String orderStatus, orderTime, staffName, restaurantName, customerName;
-    private int staffId;
+    private final int orderId;
+    private final String orderStatus;
+    private final String orderTime;
+    private final String staffName;
+    private final String restaurantName;
+    private final String customerName;
+    private final int staffId;
     private boolean ratingClicked;
 
     public Order(int orderId, String customerName, int staffId, String orderStatus, String orderTime, String staffName, String restaurantName) {

@@ -17,8 +17,8 @@ import java.util.List;
 
 public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapter.OrderViewHolder> {
 
-    private Context context;
-    private List<Order> orderList;
+    private final Context context;
+    private final List<Order> orderList;
 
     public CustomerHomeAdapter(Context context, List<Order> orderList) {
         this.context = context;

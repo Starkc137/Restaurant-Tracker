@@ -16,8 +16,8 @@ import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
 
-    private List<Order> orderList;
-    private OrderClickListener orderClickListener;
+    private final List<Order> orderList;
+    private final OrderClickListener orderClickListener;
 
     public OrderAdapter(List<Order> orderList, OrderClickListener orderClickListener) {
         this.orderList = orderList;
@@ -62,7 +62,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     public class OrderViewHolder extends RecyclerView.ViewHolder {
         public CardView cardView;
-        private TextView txtOrderId, txtCustomerName, txtStaffId, txtOrderStatus, txtOrderTime, txtResName;
+        private final TextView txtOrderId;
+        private final TextView txtCustomerName;
+        private final TextView txtStaffId;
+        private final TextView txtOrderStatus;
+        private final TextView txtOrderTime;
+        private final TextView txtResName;
 
 
         public OrderViewHolder(@NonNull View itemView) {

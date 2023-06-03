@@ -67,7 +67,7 @@ public class CustomerHomeFragment extends Fragment implements CustomerOrderAdapt
     }
 
     private class FetchOrdersTask extends AsyncTask<Void, Void, List<Order>> {
-        private String email;
+        private final String email;
 
         public FetchOrdersTask(String email) {
             this.email = email;
@@ -126,8 +126,8 @@ public class CustomerHomeFragment extends Fragment implements CustomerOrderAdapt
     }
 
     private class UpdateOrderTask extends AsyncTask<Void, Void, Boolean> {
-        private int orderId;
-        private String newStatus;
+        private final int orderId;
+        private final String newStatus;
 
         public UpdateOrderTask(int orderId, String newStatus) {
             this.orderId = orderId;
@@ -166,8 +166,8 @@ public class CustomerHomeFragment extends Fragment implements CustomerOrderAdapt
     }
 
     private class UpdateRatingTask extends AsyncTask<Void, Void, Boolean> {
-        private int orderId;
-        private String newRating;
+        private final int orderId;
+        private final String newRating;
 
         public UpdateRatingTask(int orderId, String newRating) {
             this.orderId = orderId;
