@@ -2,6 +2,9 @@ package com.example.origins.Customers.Fragments;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +33,12 @@ import java.util.List;
 
 public class CustomerHomeFragment extends Fragment implements CustomerOrderAdapter.OrderClickListener {
 
-    private static final String PHP_URL = "https://lamp.ms.wits.ac.za/~s2451244/get_customer.php";
-    private static final String PHP_UPDATE_URL = "https://lamp.ms.wits.ac.za/~s2451244/update_order.php";
+    private static final String PHP_URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/get_customer.php";
+    private static final String PHP_UPDATE_URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/update_order.php";
     private RecyclerView recyclerView;
     private CustomerOrderAdapter orderAdapter;
     private List<Order> orderList;
+    private boolean doubleBackToExitPressedOnce = false;
     private String email;
 
     @Override
@@ -199,5 +203,37 @@ public class CustomerHomeFragment extends Fragment implements CustomerOrderAdapt
                 Toast.makeText(getActivity(), "Failed to update customer rating", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Handle the back button press
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (doubleBackToExitPressedOnce) {
+                        // User clicked back button twice, exit the app
+                        requireActivity().finish();
+                    } else {
+                        // Show a Toast message on the first click
+                        doubleBackToExitPressedOnce = true;
+                        Toast.makeText(requireContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+                        // Reset the flag after a certain duration (e.g., 2 seconds)
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                doubleBackToExitPressedOnce = false;
+                            }
+                        }, 2000);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 }

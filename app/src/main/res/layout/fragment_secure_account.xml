@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/multiple_chef_hats"
+    tools:context=".SecureAccountFragment">
+
+    <TextView
+        android:id="@+id/cc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="78dp"
+        android:text="Set Security \nQuestion and Answer"
+        android:textColor="@color/orange_50"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/lll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cc"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/securityQ"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Security Question"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/orange_70" />
+
+        <EditText
+            android:id="@+id/securityA"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/text_box"
+            android:hint="Security Answer"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/orange_70"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/secureAccount"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/secureAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lll"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_bg"
+        android:text="Secure Account"
+        android:textColor="#fff" />
+
+
+
+</RelativeLayout>

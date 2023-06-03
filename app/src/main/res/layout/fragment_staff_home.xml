@@ -4,33 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ImageD"
+    android:background="@drawable/background7"
     tools:context=".Staff.Fragments.StaffHomeFragment">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="233dp"
+        android:layout_width="285dp"
         android:layout_height="49dp"
-        android:layout_marginTop="35dp"
-        android:text="Meet &amp; Eat"
-        android:textColor="@color/orange_50"
-        android:textSize="30dp"
+        android:layout_marginTop="48dp"
+        android:text="Meet And Eat"
+        android:fontFamily="@font/capriola"
+        android:textAlignment="center"
+        android:textColor="@color/orange_7"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="233dp"
+        android:layout_width="341dp"
         android:layout_height="49dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="152dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Create new order here"
-        android:textColor="@color/orange_50"
-        android:textSize="20dp"
+        android:textColor="@color/orange_7"
+        android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,9 +41,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="106dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:layout_editor_absoluteX="13dp">
 
         <EditText
             android:id="@+id/staffMemberName"
@@ -49,8 +52,10 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
+            android:fontFamily="@font/comfortaa"
             android:hint="Your staff name"
             android:padding="12dp"
+            android:textColor="@color/orange_72"
             android:textColorHint="@color/orange_70" />
 
 
@@ -60,6 +65,7 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
+            android:fontFamily="@font/comfortaa"
             android:hint="Customer Email"
             android:inputType="textPersonName"
             android:padding="12dp"
@@ -81,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="110dp"
                 android:text="Restaurant:"
-                android:textColor="@color/orange_70"
+                android:textColor="@color/orange_7"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -137,8 +143,10 @@
 
     <Button
         android:id="@+id/create_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="286dp"
+        android:layout_height="51dp"
+        android:background="@drawable/btn_bg2"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Create order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

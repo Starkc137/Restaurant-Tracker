@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:clickable="true"
     android:focusable="true"
+    app:cardCornerRadius="22dp"
+
     android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/text_box2"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginStart="5dp"
             android:padding="8dp">
 
             <TextView
                 android:id="@+id/txtCustomerName"
+                android:textSize="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:fontFamily="@font/epilogue"
+                android:textColor="@color/orange_7"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtResName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:fontFamily="@font/manrope"
+                android:textColor="@color/orange_7"
+                android:textSize="15dp"/>
 
             <TextView
+                android:textSize="15dp"
                 android:id="@+id/txtOrderStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:fontFamily="@font/manrope"
+                android:textColor="@color/orange_7"/>
         </LinearLayout>
 
         <LinearLayout

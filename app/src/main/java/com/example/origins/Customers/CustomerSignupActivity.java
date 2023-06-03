@@ -31,7 +31,7 @@ import java.util.Map;
 //ToDo new php
 public class CustomerSignupActivity extends AppCompatActivity {
 
-    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/signup.php";
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/signup.php";
     String username, email, password, confirmPassword, user_type;
     private EditText nameSK;
     private EditText emailSK;

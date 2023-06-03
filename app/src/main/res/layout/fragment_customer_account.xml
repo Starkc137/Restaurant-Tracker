@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="9dp"
     app:cardCornerRadius="10dp"
-    android:background="@drawable/MultipleChefHats"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:background="@drawable/forkpics">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +53,21 @@
             android:id="@+id/signOutS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="Sign-out" />
+            android:layout_gravity="center"
+            android:text="Sign-out"
+            android:background="@drawable/btn_bg2"
+            android:fontFamily="@font/comfortaa"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/secureS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Secure Account"
+            android:background="@drawable/btn_bg2"
+            android:fontFamily="@font/comfortaa"
+            android:layout_marginBottom="8dp"/>
     </LinearLayout>
 
 

@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class StaffSignupActivity extends AppCompatActivity {
 
-    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/staff_signup.php";
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/staff_signup.php";
     String username, email, password, confirmPassword, restaurant;
     private EditText nameSK;
     private EditText emailSK;

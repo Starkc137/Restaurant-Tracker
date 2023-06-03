@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/MultipleChefHats"
+    android:background="@drawable/background8"
     tools:context=".Customers.Fragments.CustomerHomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,15 +13,16 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="233dp"
+            android:layout_width="285dp"
             android:layout_height="49dp"
-            android:layout_marginTop="40dp"
-            android:text="Meet &amp; Eat"
-            android:textColor="@color/orange_50"
-            android:textSize="30dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/capriola"
+            android:text="Meet And Eat"
+            android:textAlignment="center"
+            android:textColor="@color/orange_7"
+            android:textSize="38dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

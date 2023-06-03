@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ImageD"
+    android:background="@drawable/background2"
     android:padding="12dp">
 
 
     <TextView
         android:id="@+id/cc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="82dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="78dp"
-        android:text="Create \nNew account"
-        android:textColor="@color/orange_50"
-        android:textSize="24sp"
+        android:fontFamily="@font/capriola"
+        android:text="Create A \nNew Account"
+        android:textColor="@color/orange_7"
+        android:textSize="28sp"
         android:textStyle="bold" />
-
 
     <LinearLayout
         android:id="@+id/ll1"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cc"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical">
 
         <EditText
@@ -38,7 +38,8 @@
             android:hint="Name"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/orange_72"
+            android:fontFamily="@font/comfortaa"
             android:textColorHint="@color/orange_70" />
 
         <EditText
@@ -47,10 +48,11 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
+            android:fontFamily="@font/comfortaa"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="12dp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/orange_72"
             android:textColorHint="@color/orange_70" />
 
     </LinearLayout>
@@ -74,8 +76,9 @@
             android:layout_margin="8dp"
             android:background="@drawable/text_box"
             android:hint="Password"
+            android:fontFamily="@font/comfortaa"
             android:inputType="textPassword"
-            android:textColor="@color/colorBlack" />
+            android:textColor="@color/orange_72" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,8 +105,9 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/text_box"
             android:hint="Confirm Password"
+            android:fontFamily="@font/comfortaa"
             android:inputType="textPassword"
-            android:textColor="@color/colorBlack" />
+            android:textColor="@color/orange_72" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,6 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="110dp"
+            android:fontFamily="@font/comfortaa"
             android:text="Restaurant:"
             android:textColor="@color/orange_70"
             android:textSize="15dp"
@@ -131,6 +136,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange_70"
             android:entries="@array/Restaurants"
+            android:fontFamily="@font/comfortaa"
             android:prompt="@string/user_type_prompt" />
 
     </LinearLayout>
@@ -150,12 +156,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/loginS"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_bg"
         android:onClick="Register"
         android:text="Sign Up"
+        android:fontFamily="@font/comfortaa"
         android:textColor="#fff" />
 
 
@@ -165,11 +172,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="90dp"
+        android:fontFamily="@font/comfortaa"
         android:onClick="moveToLogin"
         android:text="Login"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textColor="@color/orange_60"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

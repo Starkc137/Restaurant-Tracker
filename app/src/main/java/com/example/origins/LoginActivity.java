@@ -28,7 +28,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     public static final String EMAIL_REGEX = "^(.+)@(.+)$";
-    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/login.php";
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/login.php";
     ProgressBar progressBar;
     private EditText mEmail;
     private EditText mPassword;
@@ -70,40 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                     mPassword.setError("Input at least 6 characters");
                     return;
                 }
-                /*progressBar.setVisibility(View.VISIBLE);
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[2];
-                        field[0] = "email";
-                        field[1] = "password";
-
-                        String[] data = new String[2];
-                        data[0] = email;
-                        data[1] = password;
-
-                        PutData putData = new PutData("http://lamp.ms.wits.ac.za/~s2451244/login2.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            String result = putData.getResult();
-                            if (putData.onComplete()) {
-                                progressBar.setVisibility(View.GONE);
-                                if (result.equals("customer")) {
-                                    Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginActivity.this, CustomerDashboardActivity.class));
-                                    finish();
-                                }
-                                if (result.equals("staff")) {
-                                    Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginActivity.this, StaffDashboardActivity.class));
-                                    finish();
-                                }
-                            } else {
-                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                });*/
                 login();
             }
 
@@ -142,10 +108,12 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), CustomerDashboardActivity.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
+                    finish();
                 } else if (response.equals("staff")) {
                     Intent intent = new Intent(getApplicationContext(), StaffDashboardActivity.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
+                    finish();
                 }
 
             }

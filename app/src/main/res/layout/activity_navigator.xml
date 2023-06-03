@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Image2"
+    android:background="@drawable/background6"
     tools:context=".NavigatorActivity">
 
     <Button
         android:id="@+id/buttonCustomer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="245dp"
+        android:layout_height="62dp"
         android:layout_marginTop="316dp"
-        android:layout_marginBottom="59dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_bg"
+        android:fontFamily="@font/comfortaa"
         android:text="Customer Sign_up"
         app:layout_constraintBottom_toTopOf="@+id/buttonStaff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +24,11 @@
 
     <Button
         android:id="@+id/buttonStaff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="260dp"
+        android:background="@drawable/btn_bg"
+        android:fontFamily="@font/comfortaa"
         android:text="Staff Sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

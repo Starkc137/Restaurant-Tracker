@@ -3,6 +3,9 @@ package com.example.origins.Staff.Fragments;
 import static com.example.origins.LoginActivity.EMAIL_REGEX;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,13 +31,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StaffHomeFragment extends Fragment {
-    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/add_order.php";
+    private final String URL = "https://lamp.ms.wits.ac.za/~s2451244/assignment/add_order.php";
     String nameCus, emailCus, nameStaff, nameRestaurant, email;
     private Button createOrder;
     private EditText customerEmail, staffName;
     private Spinner restaurantName;
     private ProgressBar progressBar;
 
+    private boolean doubleBackToExitPressedOnce = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -133,7 +137,7 @@ public class StaffHomeFragment extends Fragment {
     }
 
     private void getUsername(String email) {
-        String url = "https://lamp.ms.wits.ac.za/~s2451244/fetch_username.php";
+        String url = "https://lamp.ms.wits.ac.za/~s2451244/assignment/fetch_username.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -158,5 +162,37 @@ public class StaffHomeFragment extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Handle the back button press
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (doubleBackToExitPressedOnce) {
+                        // User clicked back button twice, exit the app
+                        requireActivity().finish();
+                    } else {
+                        // Show a Toast message on the first click
+                        doubleBackToExitPressedOnce = true;
+                        Toast.makeText(requireContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+                        // Reset the flag after a certain duration (e.g., 2 seconds)
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                doubleBackToExitPressedOnce = false;
+                            }
+                        }, 2000);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 }

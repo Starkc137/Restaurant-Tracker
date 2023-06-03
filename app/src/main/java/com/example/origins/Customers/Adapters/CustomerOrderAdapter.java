@@ -92,7 +92,7 @@ public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdap
     }
 
     private void updateRating(int orderId, String buttonType) {
-        String url = "https://lamp.ms.wits.ac.za/~s2451244/update_rating.php";
+        String url = "https://lamp.ms.wits.ac.za/~s2451244/assignment/update_rating.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
