@@ -4,6 +4,7 @@ This app is meant to inform users of the status of their orders at takeaways. In
 # Video Preview
 https://github.com/Starkc137/Restaurant-Tracker/assets/105763843/58d89a21-10da-4ff4-bbaf-d4885f981cef
 
+link to full demo: https://youtu.be/ss7lTyD7JxE
 
 
 # Plagiarism
