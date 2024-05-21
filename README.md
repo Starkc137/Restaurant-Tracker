@@ -1,3 +1,6 @@
+#
+[![Coverage Status](https://coveralls.io/repos/github/ndlanzi-c137/e-spaza-project/badge.svg?branch=master)](https://coveralls.io/github/ndlanzi-c137/e-spaza-project?branch=master)
+
 # Restuarant-Tracker
 This app is meant to inform users of the status of their orders at takeaways. In this app we were requred to cater for multiple takeaways. This app is used by two distinct people - staff and customers.
 
